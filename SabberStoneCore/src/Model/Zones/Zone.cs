@@ -590,7 +590,36 @@ namespace SabberStoneCore.Model.Zones
 		public override T Remove(T entity)
 		{
 			//if (entity.Zone == null || entity.Zone.Type != Type)
-			if (entity.Zone != this)
+			if (entity.Zone != (PositioningZone<T>) this)
+				throw new ZoneException("Couldn't remove entity from zone.");
+
+			int pos = entity.ZonePosition;
+			int count = _count;
+			T[] entities = _entities;
+			//for (pos = count - 1; pos >= 0; --pos)
+			//	if (ReferenceEquals(entities[pos], entity)) break;
+
+			if (pos < --count)
+				Array.Copy(entities, pos + 1, entities, pos, count - pos);
+
+			_count = count;
+
+			Reposition(pos);
+
+			entity.Zone = null;
+
+			entity.ActivatedTrigger?.Remove();
+
+			for (int i = Auras.Count - 1; i >= 0; i--)
+				Auras[i].EntityRemoved(entity);
+
+			return entity;
+		}
+
+		public T UnSafeRemove(T entity)
+		{
+			//if (entity.Zone == null || entity.Zone.Type != Type)
+			if (!entity.Zone.ToString().Equals(this.ToString()))
 				throw new ZoneException("Couldn't remove entity from zone.");
 
 			int pos = entity.ZonePosition;

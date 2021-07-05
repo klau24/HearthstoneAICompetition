@@ -8,6 +8,7 @@ using SabberStoneCore.Model.Entities;
 using SabberStoneCore.Model.Zones;
 using SabberStoneCore.Tasks.PlayerTasks;
 using SabberStoneBasicAI.Meta;
+using System.Linq;
 
 namespace SabberStoneBasicAI.PartialObservation
 {
@@ -18,7 +19,7 @@ namespace SabberStoneBasicAI.PartialObservation
 
 		private Game game;
 		private bool debug;
-		private static int max_tries = 10;
+		private static int max_tries = 30;
 
 		public POGame(Game game, bool debug, Game prevGame = null)
 		{
@@ -191,7 +192,7 @@ namespace SabberStoneBasicAI.PartialObservation
 						catch (Exception e)
 						{
 							Console.Write(e);
-							//Console.WriteLine("Failed to copy");
+							Console.WriteLine("Failed to copy");
 						}
 					}
 					if (!success)
@@ -202,7 +203,38 @@ namespace SabberStoneBasicAI.PartialObservation
 				}
 				else
 				{
-					simulated.Add(task, null);
+					Game clone = game.Clone();
+
+					bool contained_CurrentPlayer = false;
+					foreach (IPlayable card in clone.CurrentPlayer.HandZone)
+						if (card.Card.Id == "LOEA04_31b" && card.Id == task.Source.Id)
+						{
+							card.Zone = clone.CurrentPlayer.HandZone;
+							if (card.Id == task.Source.Id) {
+								contained_CurrentPlayer = true;
+								task.Source.Zone = clone.CurrentPlayer.HandZone;
+							}
+						}
+
+					if (contained_CurrentPlayer)
+						clone.CurrentPlayer.HandZone.UnSafeRemove(task.Source);
+
+
+					bool contained_Opponent = false;
+					foreach (IPlayable card in clone.CurrentOpponent.HandZone)
+						if (card.Card.Id == "LOEA04_31b")
+						{
+							card.Zone = clone.CurrentOpponent.HandZone;
+							if (card.Id == task.Source.Id)
+							{
+								task.Source.Zone = clone.CurrentOpponent.HandZone;
+								contained_Opponent = true;
+							}
+						}
+					if (contained_Opponent)
+						clone.CurrentOpponent.HandZone.UnSafeRemove(task.Source);
+
+					simulated.Add(task, new POGame(clone, this.debug, game));
 					//Console.WriteLine("Agent tries to play debug card!");
 				}
 			}

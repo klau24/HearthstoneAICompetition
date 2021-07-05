@@ -53,6 +53,13 @@ namespace SabberStoneCore.Model.Zones
 			return base.Remove(entity);
 		}
 
+		public IPlayable UnSafeRemove(IPlayable entity)
+		{
+			((Playable)entity).ResetCost();
+			entity.AppliedEnchantments?.ForEach(p => p.ActivatedTrigger?.Remove());
+			return base.UnSafeRemove(entity);
+		}
+
 		public HandZone Clone(Controller c)
 		{
 			return new HandZone(c, this);

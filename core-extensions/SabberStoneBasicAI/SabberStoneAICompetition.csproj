@@ -1,13 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <OutputType>Exe</OutputType>
     <StartupObject>SabberStoneBasicAI.Program</StartupObject>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\GithubRepositories\HearthstoneAICompetition\Backup1\</UpgradeBackupLocation>
+    <OldToolsVersion>Current</OldToolsVersion>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\SabberStoneCore\SabberStoneCore.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Folder Include="src\AIAgents\SubmittedAgents\Both\LarsWagnerBot\" />
+  </ItemGroup>
 </Project>

@@ -26,6 +26,45 @@ using SabberStoneBasicAI.AIAgents;
 using SabberStoneBasicAI.PartialObservation;
 using SabberStoneBasicAI.CompetitionEvaluation;
 
+//Pre-Made Deck-Playing Track
+using SabberStoneBasicAI.AIAgents.Gretive;
+using SabberStoneBasicAI.AIAgents.Costume;
+using SabberStoneBasicAI.AIAgents.BloodyFace;
+using SabberStoneBasicAI.AIAgents.MCTSHans;
+using SabberStoneBasicAI.AIAgents.HenryChia;
+using SabberStoneBasicAI.AIAgents.minimax;
+using SabberStoneBasicAI.AIAgents.mudgal_kumar_1;
+using SabberStoneBasicAI.AIAgents.mudgal_kumar_2;
+using SabberStoneBasicAI.AIAgents.MaBuSaBu;
+using SabberStoneBasicAI.AIAgents.BotterThanYouThink;
+using SabberStoneBasicAI.AIAgents.CopyCats;
+using SabberStoneBasicAI.AIAgents.FrankenStein;
+using SabberStoneBasicAI.AIAgents.magic_number;
+using SabberStoneBasicAI.AIAgents.TYamaoka;
+using SabberStoneBasicAI.AIAgents.BetaStone;
+using SabberStoneBasicAI.AIAgents.BetterGreedyBot;
+
+//User-Created Deck-Playing Track
+using SabberStoneBasicAI.AIAgents.JoachimKnobi;
+using SabberStoneBasicAI.AIAgents.DepthFour_DefenceAgent;
+using SabberStoneBasicAI.AIAgents.FinalAgent;
+using SabberStoneBasicAI.AIAgents.Otto007;
+using SabberStoneBasicAI.AIAgents.MAGEntMann;
+using SabberStoneBasicAI.AIAgents.manuelliebchen;
+using SabberStoneBasicAI.AIAgents.ThreeTypeDynLooker;
+using SabberStoneBasicAI.AIAgents.Clearvoyant_Paladin;
+using SabberStoneBasicAI.AIAgents.M_Priest_2;
+using SabberStoneBasicAI.AIAgents.M_Warrior_5;
+using SabberStoneBasicAI.AIAgents.CopyCats;
+using SabberStoneBasicAI.AIAgents.Richter;
+using SabberStoneBasicAI.AIAgents.c_isnt_sharp;
+using SabberStoneBasicAI.AIAgents.Shrouded;
+using SabberStoneBasicAI.AIAgents.TomPeters;
+
+//Both Tracks
+using SabberStoneBasicAI.AIAgents.Visionpack;
+
+
 namespace SabberStoneBasicAI
 {
 	internal class Program
@@ -43,31 +82,64 @@ namespace SabberStoneBasicAI
 			//RandomGames();
 			//TestPOGame();
 			//TestFullGames();
-			TestTournament();
+			PreMadeDeckPlayingTournament();
+			UserCreatedDeckPlayingTournament();
 
 			Console.WriteLine("Test ended!");
 			Console.ReadLine();
 		}
 
-		public static void TestTournament()
+		public static void PreMadeDeckPlayingTournament()
 		{
-			Agent[] agents = new Agent[2];
-			agents[0] = new Agent(typeof(RandomAgent), "Random Agent");
-			agents[1] = new Agent(typeof(GreedyAgent), "Greedy Agent");
-			//agents[2] = new Agent(typeof(DynamicLookaheadAgent), "Dynamic Lookahead Agent");
-			//agents[3] = new Agent(typeof(BeamSearchAgent), "Beam Search Agent");
+			Agent[] agents = new Agent[23];
+			agents[0] = new Agent(typeof(RandomAgent), "Random Agent");										// using SabberStoneBasicAI.AIAgents.Gretive;
+			agents[1] = new Agent(typeof(GretiveComp), "GretiveComp");										// using SabberStoneBasicAI.AIAgents.Costume;
+			agents[2] = new Agent(typeof(AheadAgent), "AheadAgent");										// using SabberStoneBasicAI.AIAgents.Costume;
+			agents[3] = new Agent(typeof(BloodyFace2), "BloodyFace2");										// using SabberStoneBasicAI.AIAgents.BloodyFace;
+			agents[4] = new Agent(typeof(AgentHansEGREEDY5), "AgentHansEGREEDY5");							// using SabberStoneBasicAI.AIAgents.MCTSHans;
+			agents[5] = new Agent(typeof(AgentHansUCB1), "AgentHansUCB1");									// using SabberStoneBasicAI.AIAgents.MCTSHans;
+			agents[6] = new Agent(typeof(HenryChiaAgent), "HenryChiaAgent");								// using SabberStoneBasicAI.AIAgents.HenryChia;
+			agents[7] = new Agent(typeof(MyAgentJulian), "MyAgentJulian");									// using SabberStoneBasicAI.AIAgents.minimax;
+			agents[8] = new Agent(typeof(GreedyLookaheadAgent), "GreedyLookaheadAgent");					// using SabberStoneBasicAI.AIAgents.mudgal_kumar_1;
+			agents[9] = new Agent(typeof(GreedyLookaheadAgent2), "GreedyLookaheadAgent2");					// using SabberStoneBasicAI.AIAgents.mudgal_kumar_2;
+			agents[10] = new Agent(typeof(MyTurnDeepLookaheadAgent), "MyTurnDeepLookaheadAgent");			// using SabberStoneBasicAI.AIAgents.MaBuSaBu;
+			agents[11] = new Agent(typeof(MyTurnLookaheadBalancedAgent), "MyTurnLookaheadBalancedAgent");	// using SabberStoneBasicAI.AIAgents.MaBuSaBu;
+			agents[12] = new Agent(typeof(Jerry), "Jerry");													// using SabberStoneBasicAI.AIAgents.BotterThanYouThink;
+			agents[13] = new Agent(typeof(PickleRick), "PickleRick");										// using SabberStoneBasicAI.AIAgents.BotterThanYouThink;
+			agents[14] = new Agent(typeof(LynamicDookaheadAgentV1Master), "LynamicDookaheadAgentV1Master"); // using SabberStoneBasicAI.AIAgents.CopyCats;
+			agents[15] = new Agent(typeof(AllMe), "AllMe");													// using SabberStoneBasicAI.AIAgents.FrankenStein;
+			agents[16] = new Agent(typeof(iWillBeatOpenAIFive), "iWillBeatOpenAIFive");						// using SabberStoneBasicAI.AIAgents.FrankenStein;
+			agents[17] = new Agent(typeof(MagicNumberAgent), "MagicNumberAgent");                           // using SabberStoneBasicAI.AIAgents.magic_number;
+			agents[18] = new Agent(typeof(MyAgentSebastianMiller2), "MyAgentSebastianMiller2");							// using SabberStoneBasicAI.AIAgents.BetterGreedyBot;
+			agents[19] = new Agent(typeof(TYamaokaAgent), "TYamaokaAgent");									// using SabberStoneBasicAI.AIAgents.TYamaoka;
+			agents[20] = new Agent(typeof(BetaStone), "BetaStone");											// using SabberStoneBasicAI.AIAgents.BetaStone;
+			agents[21] = new Agent(typeof(BetaStone2), "BetaStone2");                                       // using SabberStoneBasicAI.AIAgents.BetaStone;
+			agents[22] = new Agent(typeof(VisionpackAgent), "VisionpackAgent");                             // using SabberStoneBasicAI.AIAgents.Visionpack;
+			
 
-			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[3];
-			decks[0] = new CompetitionEvaluation.Deck(Decks.RenoKazakusMage, CardClass.MAGE, "Mage");
-			decks[1] = new CompetitionEvaluation.Deck(Decks.AggroPirateWarrior, CardClass.WARRIOR, "Warrior");
-			decks[2] = new CompetitionEvaluation.Deck(Decks.MidrangeJadeShaman, CardClass.SHAMAN, "Shaman");
+			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[9];
+			decks[0] = new CompetitionEvaluation.Deck(Decks.MurlocDruid, CardClass.DRUID,	"Druid");
+			decks[1] = new CompetitionEvaluation.Deck(Decks.MidrangeSecretHunter, CardClass.HUNTER,	"Hunter");
+			decks[2] = new CompetitionEvaluation.Deck(Decks.RenoKazakusMage,	CardClass.MAGE,		"Mage");
+			decks[3] = new CompetitionEvaluation.Deck(Decks.MidrangeBuffPaladin, CardClass.PALADIN,	"Paladin");
+			decks[4] = new CompetitionEvaluation.Deck(Decks.RenoKazakusDragonPriest, CardClass.PRIEST,	"Priest");
+			decks[5] = new CompetitionEvaluation.Deck(Decks.MiraclePirateRogue, CardClass.ROGUE,	"Rogue");
+			decks[6] = new CompetitionEvaluation.Deck(Decks.MidrangeJadeShaman, CardClass.SHAMAN,	"Shaman");
+			decks[7] = new CompetitionEvaluation.Deck(Decks.ZooDiscardWarlock, CardClass.WARLOCK,	"Warlock");
+			decks[8] = new CompetitionEvaluation.Deck(Decks.AggroPirateWarrior, CardClass.WARRIOR,	"Warrior");
 
-			RoundRobinCompetition competition = new RoundRobinCompetition(agents, decks, "results.txt");
-			competition.CreateTasks(100);
-			competition.startEvaluation(8);
+
+			RoundRobinCompetition competition = new RoundRobinCompetition(agents, decks, "competition_test.txt");
+			competition.CreateTasks(1);
+			competition.startEvaluation(1);
 
 			Console.WriteLine("Total Games Played: " + competition.GetTotalGamesPlayed());
 			competition.PrintAgentStats();
+		}
+
+		public static void UserCreatedDeckPlayingTournament()
+		{
+
 		}
 
 		public static void TestPOGame()
