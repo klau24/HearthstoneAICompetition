@@ -1,4 +1,4 @@
-﻿#region copyright
+#region copyright
 // SabberStone, Hearthstone Simulator in C# .NET Core
 // Copyright (C) 2017-2019 SabberStone Team, darkfriend77 & rnilva
 //
@@ -140,8 +140,8 @@ namespace SabberStoneBasicAI.Meta
 		{
 			Cards.FromName("Alleycat"),
 			Cards.FromName("Alleycat"),
-			Cards.FromName("Bear Trap"),
-			Cards.FromName("Bear Trap"),
+			//Cards.FromName("Bear Trap"),
+			//Cards.FromName("Bear Trap"),
 			Cards.FromName("Explosive Trap"),
 			Cards.FromName("Explosive Trap"),
 			Cards.FromName("Quick Shot"),

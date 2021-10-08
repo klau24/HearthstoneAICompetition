@@ -1,4 +1,4 @@
-﻿#region copyright
+#region copyright
 // SabberStone, Hearthstone Simulator in C# .NET Core
 // Copyright (C) 2017-2019 SabberStone Team, darkfriend77 & rnilva
 //
@@ -84,7 +84,7 @@ namespace SabberStoneBasicAI
 			//TestPOGame();
 			//TestFullGames();
 			PreMadeDeckPlayingTournament();
-			UserCreatedDeckPlayingTournament();
+			//UserCreatedDeckPlayingTournament();
 
 			Console.WriteLine("Test ended!");
 			Console.ReadLine();
@@ -130,8 +130,8 @@ namespace SabberStoneBasicAI
 			decks[8] = new CompetitionEvaluation.Deck(Decks.AggroPirateWarrior, CardClass.WARRIOR,	"Warrior");
 
 
-			RoundRobinCompetition competition = new RoundRobinCompetition(agents, decks, "competition_test.txt");
-			competition.CreateTasks(1);
+			RoundRobinCompetition competition = new RoundRobinCompetition(agents, decks, "competition_debug.txt");
+			competition.CreateTasks(500);
 			competition.startEvaluation(1);
 
 			Console.WriteLine("Total Games Played: " + competition.GetTotalGamesPlayed());
