@@ -13,7 +13,7 @@ using System.Diagnostics;
 // each added file needs to use this namespace or a subnamespace of it
 
 
-namespace SabberStoneBasicAI.AIAgents.BotterThanYouThink
+namespace SabberStoneBasicAI.AIAgents.PickleRick
 {
 	class PickleRick : AbstractAgent
 	{

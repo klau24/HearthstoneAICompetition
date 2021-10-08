@@ -4,7 +4,7 @@ using SabberStoneCore.Model.Entities;
 using System.Linq;
 using SabberStoneBasicAI.Score;
 
-namespace SabberStoneBasicAI.AIAgents.BotterThanYouThink
+namespace SabberStoneBasicAI.AIAgents.PickleRick
 {
 	public class CustomControlScoreHempel : Score.Score
 	{

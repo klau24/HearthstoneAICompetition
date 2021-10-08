@@ -11,7 +11,7 @@ using System.Linq;
 
 // Authors: Julia Heise & Markus Hempel
 // INF:Master
-namespace SabberStoneBasicAI.AIAgents.BotterThanYouThink
+namespace SabberStoneBasicAI.AIAgents.Jerry
 {
 	class Jerry : AbstractAgent
 	{
