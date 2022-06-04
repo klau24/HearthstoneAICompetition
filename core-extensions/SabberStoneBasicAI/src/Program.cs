@@ -25,6 +25,7 @@ using SabberStoneBasicAI.Score;
 using SabberStoneBasicAI.AIAgents;
 using SabberStoneBasicAI.PartialObservation;
 using SabberStoneBasicAI.CompetitionEvaluation;
+using SabberStoneBasicAI.AIAgents.Gretive;
 
 namespace SabberStoneBasicAI
 {
@@ -51,10 +52,10 @@ namespace SabberStoneBasicAI
 
 		public static void TestTournament()
 		{
-			Agent[] agents = new Agent[2];
+			Agent[] agents = new Agent[3];
 			agents[0] = new Agent(typeof(RandomAgent), "Random Agent");
 			agents[1] = new Agent(typeof(GreedyAgent), "Greedy Agent");
-			//agents[2] = new Agent(typeof(DynamicLookaheadAgent), "Dynamic Lookahead Agent");
+			agents[2] = new Agent(typeof(GretiveComp), "MCTS");
 			//agents[3] = new Agent(typeof(BeamSearchAgent), "Beam Search Agent");
 
 			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[3];
