@@ -25,7 +25,9 @@ using SabberStoneBasicAI.Score;
 using SabberStoneBasicAI.AIAgents;
 using SabberStoneBasicAI.PartialObservation;
 using SabberStoneBasicAI.CompetitionEvaluation;
-using SabberStoneBasicAI.AIAgents.Gretive;
+using SabberStoneBasicAI.AIAgents.BetterGreedyBot;
+using SabberStoneBasicAI.AIAgents.Test;
+
 
 namespace SabberStoneBasicAI
 {
@@ -52,11 +54,12 @@ namespace SabberStoneBasicAI
 
 		public static void TestTournament()
 		{
-			Agent[] agents = new Agent[3];
+			Agent[] agents = new Agent[5];
 			agents[0] = new Agent(typeof(RandomAgent), "Random Agent");
 			agents[1] = new Agent(typeof(GreedyAgent), "Greedy Agent");
-			agents[2] = new Agent(typeof(GretiveComp), "MCTS");
-			//agents[3] = new Agent(typeof(BeamSearchAgent), "Beam Search Agent");
+			agents[2] = new Agent(typeof(AIAgents.Gretive.GretiveComp), "MCTS");
+			agents[3] = new Agent(typeof(MyAgentSebastianMiller), "2 Step Look Ahead");
+			agents[4] = new Agent(typeof(MyAgentCSC570), "Weighted 2 Step Look Ahead");
 
 			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[3];
 			decks[0] = new CompetitionEvaluation.Deck(Decks.RenoKazakusMage, CardClass.MAGE, "Mage");
@@ -64,8 +67,8 @@ namespace SabberStoneBasicAI
 			decks[2] = new CompetitionEvaluation.Deck(Decks.MidrangeJadeShaman, CardClass.SHAMAN, "Shaman");
 
 			RoundRobinCompetition competition = new RoundRobinCompetition(agents, decks, "results.txt");
-			competition.CreateTasks(70);
-			competition.startEvaluation(8);
+			competition.CreateTasks(50);
+			competition.startEvaluation(10);
 
 			Console.WriteLine("Total Games Played: " + competition.GetTotalGamesPlayed());
 			competition.PrintAgentStats();
