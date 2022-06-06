@@ -23,7 +23,7 @@ For the best results, we highly recommend running this repository on a Windows m
 Instructions to setup the repository:
 * Clone this repository to your machine
 * Open the project with [Visual Studio](https://visualstudio.microsoft.com/) (will not work if opened with Visual Studio Code!). Check and make sure you have Visual Studio Build Tools 2017, 2019 installed
-* Go to the following directory: `HearthstoneAICompetition/core-extensions/SabberStoneBasicAI/src`
+* Go to the following directory: [`HearthstoneAICompetition/core-extensions/SabberStoneBasicAI/src`](https://github.com/klau24/HearthstoneAICompetition/tree/master/core-extensions/SabberStoneBasicAI/src)
 	- In this directory there are a few key files and folders. [`Program.cs`](https://github.com/klau24/HearthstoneAICompetition/blob/master/core-extensions/SabberStoneBasicAI/src/Program.cs) is the main file used to run and compete each AI agent against each other. The [`AIAgents`](https://github.com/klau24/HearthstoneAICompetition/tree/master/core-extensions/SabberStoneBasicAI/src/AIAgents) folder contains the implementation for each agent.
 * Build the project
 * Run the project
