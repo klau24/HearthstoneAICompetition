@@ -1,3 +1,7 @@
+<p align="center">
+<img src="docs/readme/HearthstoneCompetition2020.png" alt="Competition logo" height="80%"/>
+</p>
+
 # Hearthstone-AI Competition 2020
 
 Welcome to the 2020's Edition of the Hearthstone AI Competition. Please always download the latest version of the competition framework. Minor changes will be added until 17 April. Any further updates may include bugfixes. More information including setup information, tutorials and the source code of previous year's submissions can be found on the official competition homepage [Link](http://www.ci.ovgu.de/Research/HearthstoneAI.html).
