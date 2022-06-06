@@ -17,12 +17,22 @@ The collectible online card game Hearthstone features a rich testbed and poses u
 
   Core simulator engine, all the functions needed for the simulator are in here. Check out the Wiki [Link](https://github.com/HearthSim/SabberStone/wiki) for informations about the core and how to use it.
 
-### License
+### Usage ###
+For the best results, we highly recommend running this repository on a Windows machine. When we tried to setup the SabberStone environment on MacOS machines, we ran into compilation issues that we were unable to solve. Our best guess is that while it is possible to run .NET applications on MacOS, the SabberStone repository is outdated or incompatible with the operating system.
 
-[![AGPLv3](https://www.gnu.org/graphics/agplv3-88x31.png)](http://choosealicense.com/licenses/agpl-3.0/)
+Instructions to setup the repository:
+* Clone this repository to your machine
+* Open the project with [Visual Studio](https://visualstudio.microsoft.com/) (will not work if opened with Visual Studio Code!). Check and make sure you have Visual Studio Build Tools 2017, 2019 installed
+* Go to the following directory: `HearthstoneAICompetition/core-extensions/SabberStoneBasicAI/src`
+	- In this directory there are a few key files and folders. [`Program.cs`](https://github.com/klau24/HearthstoneAICompetition/blob/master/core-extensions/SabberStoneBasicAI/src/Program.cs) is the main file used to run and compete each AI agent against each other. The [`AIAgents`](https://github.com/klau24/HearthstoneAICompetition/tree/master/core-extensions/SabberStoneBasicAI/src/AIAgents) folder contains the implementation for each agent.
+* Build the project
+* Run the project
+	- A terminal window should pop up that looks something like this:
+	![image](https://user-images.githubusercontent.com/49251143/172262614-6af0b7fc-2392-4517-9b7d-f166c93d7da1.png)
+	- With the current parameters, the program will play around 9,000 games which took ~4 hours on our machines.
 
-SabberStone is licensed under the terms of the
-[Affero GPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) or any later version.
+### Results ###
+blah blah
 
 # Acknowledgements
 This project will have been impossible without the SabberStone Hearthstone simulator engine. Check out the [Github](https://github.com/HearthSim/SabberStone) for more information. This repository is a fork of the HearthstoneAICompetition from [Adockhorn](https://github.com/ADockhorn/HearthstoneAICompetition). Compared to Sabberstone, our repository is a minimal environment with emphasis on the AI components.
