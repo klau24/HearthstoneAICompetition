@@ -1,0 +1,91 @@
+,a1,a2,d1,d2,wins,loses,ties,wr
+0,Random Agent,Greedy Agent,Mage,Mage,0,100,0,0.0
+1,Random Agent,Greedy Agent,Mage,Warrior,8,92,0,0.08
+2,Random Agent,Greedy Agent,Mage,Shaman,1,99,0,0.01
+3,Random Agent,Greedy Agent,Warrior,Mage,34,66,0,0.34
+4,Random Agent,Greedy Agent,Warrior,Warrior,7,93,0,0.07
+5,Random Agent,Greedy Agent,Warrior,Shaman,25,75,0,0.25
+6,Random Agent,Greedy Agent,Shaman,Mage,15,85,0,0.15
+7,Random Agent,Greedy Agent,Shaman,Warrior,25,75,0,0.25
+8,Random Agent,Greedy Agent,Shaman,Shaman,1,99,0,0.01
+9,Random Agent,MCTS,Mage,Mage,1,99,0,0.01
+10,Random Agent,MCTS,Mage,Warrior,1,99,0,0.01
+11,Random Agent,MCTS,Mage,Shaman,0,100,0,0.0
+12,Random Agent,MCTS,Warrior,Mage,1,99,0,0.01
+13,Random Agent,MCTS,Warrior,Warrior,0,100,0,0.0
+14,Random Agent,MCTS,Warrior,Shaman,0,100,0,0.0
+15,Random Agent,MCTS,Shaman,Mage,1,99,0,0.01
+16,Random Agent,MCTS,Shaman,Warrior,0,100,0,0.0
+17,Random Agent,MCTS,Shaman,Shaman,1,99,0,0.01
+18,Random Agent,2 Step Look Ahead,Mage,Mage,0,100,0,0.0
+19,Random Agent,2 Step Look Ahead,Mage,Warrior,0,100,0,0.0
+20,Random Agent,2 Step Look Ahead,Mage,Shaman,0,100,0,0.0
+21,Random Agent,2 Step Look Ahead,Warrior,Mage,0,100,0,0.0
+22,Random Agent,2 Step Look Ahead,Warrior,Warrior,0,100,0,0.0
+23,Random Agent,2 Step Look Ahead,Warrior,Shaman,1,99,0,0.01
+24,Random Agent,2 Step Look Ahead,Shaman,Mage,0,100,0,0.0
+25,Random Agent,2 Step Look Ahead,Shaman,Warrior,0,100,0,0.0
+26,Random Agent,2 Step Look Ahead,Shaman,Shaman,0,100,0,0.0
+27,Random Agent,Weighted 2 Step Look Ahead,Mage,Mage,0,100,0,0.0
+28,Random Agent,Weighted 2 Step Look Ahead,Mage,Warrior,1,99,0,0.01
+29,Random Agent,Weighted 2 Step Look Ahead,Mage,Shaman,2,97,0,0.020202020202020204
+30,Random Agent,Weighted 2 Step Look Ahead,Warrior,Mage,13,86,0,0.13131313131313133
+31,Random Agent,Weighted 2 Step Look Ahead,Warrior,Warrior,2,98,0,0.02
+32,Random Agent,Weighted 2 Step Look Ahead,Warrior,Shaman,4,96,0,0.04
+33,Random Agent,Weighted 2 Step Look Ahead,Shaman,Mage,21,79,0,0.21
+34,Random Agent,Weighted 2 Step Look Ahead,Shaman,Warrior,5,95,0,0.05
+35,Random Agent,Weighted 2 Step Look Ahead,Shaman,Shaman,6,94,0,0.06
+36,Greedy Agent,MCTS,Mage,Mage,20,80,0,0.2
+37,Greedy Agent,MCTS,Mage,Warrior,15,85,0,0.15
+38,Greedy Agent,MCTS,Mage,Shaman,15,85,0,0.15
+39,Greedy Agent,MCTS,Warrior,Mage,4,96,0,0.04
+40,Greedy Agent,MCTS,Warrior,Warrior,10,90,0,0.1
+41,Greedy Agent,MCTS,Warrior,Shaman,13,87,0,0.13
+42,Greedy Agent,MCTS,Shaman,Mage,21,79,0,0.21
+43,Greedy Agent,MCTS,Shaman,Warrior,18,82,0,0.18
+44,Greedy Agent,MCTS,Shaman,Shaman,27,73,0,0.27
+45,Greedy Agent,2 Step Look Ahead,Mage,Mage,17,83,0,0.17
+46,Greedy Agent,2 Step Look Ahead,Mage,Warrior,21,79,0,0.21
+47,Greedy Agent,2 Step Look Ahead,Mage,Shaman,17,83,0,0.17
+48,Greedy Agent,2 Step Look Ahead,Warrior,Mage,7,93,0,0.07
+49,Greedy Agent,2 Step Look Ahead,Warrior,Warrior,8,92,0,0.08
+50,Greedy Agent,2 Step Look Ahead,Warrior,Shaman,10,90,0,0.1
+51,Greedy Agent,2 Step Look Ahead,Shaman,Mage,18,82,0,0.18
+52,Greedy Agent,2 Step Look Ahead,Shaman,Warrior,13,87,0,0.13
+53,Greedy Agent,2 Step Look Ahead,Shaman,Shaman,30,70,0,0.3
+54,Greedy Agent,Weighted 2 Step Look Ahead,Mage,Mage,41,58,0,0.41414141414141414
+55,Greedy Agent,Weighted 2 Step Look Ahead,Mage,Warrior,20,78,0,0.20408163265306123
+56,Greedy Agent,Weighted 2 Step Look Ahead,Mage,Shaman,23,77,0,0.23
+57,Greedy Agent,Weighted 2 Step Look Ahead,Warrior,Mage,39,61,0,0.39
+58,Greedy Agent,Weighted 2 Step Look Ahead,Warrior,Warrior,30,70,0,0.3
+59,Greedy Agent,Weighted 2 Step Look Ahead,Warrior,Shaman,35,64,0,0.35353535353535354
+60,Greedy Agent,Weighted 2 Step Look Ahead,Shaman,Mage,64,36,0,0.64
+61,Greedy Agent,Weighted 2 Step Look Ahead,Shaman,Warrior,27,73,0,0.27
+62,Greedy Agent,Weighted 2 Step Look Ahead,Shaman,Shaman,62,38,0,0.62
+63,MCTS,2 Step Look Ahead,Mage,Mage,52,48,0,0.52
+64,MCTS,2 Step Look Ahead,Mage,Warrior,73,27,0,0.73
+65,MCTS,2 Step Look Ahead,Mage,Shaman,58,42,0,0.58
+66,MCTS,2 Step Look Ahead,Warrior,Mage,36,64,0,0.36
+67,MCTS,2 Step Look Ahead,Warrior,Warrior,42,58,0,0.42
+68,MCTS,2 Step Look Ahead,Warrior,Shaman,45,55,0,0.45
+69,MCTS,2 Step Look Ahead,Shaman,Mage,48,52,0,0.48
+70,MCTS,2 Step Look Ahead,Shaman,Warrior,59,41,0,0.59
+71,MCTS,2 Step Look Ahead,Shaman,Shaman,47,53,0,0.47
+72,MCTS,Weighted 2 Step Look Ahead,Mage,Mage,64,35,0,0.6464646464646465
+73,MCTS,Weighted 2 Step Look Ahead,Mage,Warrior,71,28,0,0.7171717171717171
+74,MCTS,Weighted 2 Step Look Ahead,Mage,Shaman,57,42,0,0.5757575757575758
+75,MCTS,Weighted 2 Step Look Ahead,Warrior,Mage,69,30,0,0.696969696969697
+76,MCTS,Weighted 2 Step Look Ahead,Warrior,Warrior,67,33,0,0.67
+77,MCTS,Weighted 2 Step Look Ahead,Warrior,Shaman,73,27,0,0.73
+78,MCTS,Weighted 2 Step Look Ahead,Shaman,Mage,76,24,0,0.76
+79,MCTS,Weighted 2 Step Look Ahead,Shaman,Warrior,72,28,0,0.72
+80,MCTS,Weighted 2 Step Look Ahead,Shaman,Shaman,68,32,0,0.68
+81,2 Step Look Ahead,Weighted 2 Step Look Ahead,Mage,Mage,58,42,0,0.58
+82,2 Step Look Ahead,Weighted 2 Step Look Ahead,Mage,Warrior,90,10,0,0.9
+83,2 Step Look Ahead,Weighted 2 Step Look Ahead,Mage,Shaman,69,31,0,0.69
+84,2 Step Look Ahead,Weighted 2 Step Look Ahead,Warrior,Mage,55,44,0,0.5555555555555556
+85,2 Step Look Ahead,Weighted 2 Step Look Ahead,Warrior,Warrior,75,25,0,0.75
+86,2 Step Look Ahead,Weighted 2 Step Look Ahead,Warrior,Shaman,67,33,0,0.67
+87,2 Step Look Ahead,Weighted 2 Step Look Ahead,Shaman,Mage,82,18,0,0.82
+88,2 Step Look Ahead,Weighted 2 Step Look Ahead,Shaman,Warrior,81,19,0,0.81
+89,2 Step Look Ahead,Weighted 2 Step Look Ahead,Shaman,Shaman,87,13,0,0.87
