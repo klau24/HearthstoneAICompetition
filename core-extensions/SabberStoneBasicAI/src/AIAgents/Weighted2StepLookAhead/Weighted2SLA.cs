@@ -21,6 +21,7 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 			if (HeroHp < 1)
 				return Int32.MinValue;
 
+			// Generating a score based on the current state of game
 			int score = 0;
 
 			score += 3 * HeroHp;
@@ -41,11 +42,13 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 				score -= 7 * boardZoneEntry.AttackDamage;
 			}
 
+			// We add the computed score above to the initial weights from GretiveDispatcher
 			return totalScore.Rate() + score;
 		}
 
 		public override Func<List<IPlayable>, List<int>> MulliganRule()
 		{
+			// Rule for the mulligan at beginning of game. Remove card with cost > 3
 			return p => p.Where(t => t.Cost > 3).Select(t => t.Id).ToList();
 		}
 	}
@@ -72,6 +75,7 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 
 		public override PlayerTask GetMove(POGame game)
 		{
+			// Get the gretiveDispatcher values based on the hero class
 			_player = game.CurrentPlayer;
 			if (!_initialized) InitByHero(_player.HeroClass);
 
@@ -79,12 +83,14 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 			var validOpts = game.Simulate(player.Options()).Where(x => x.Value != null);
 			var optcount = validOpts.Count();
 
+			// getting playing options based on the current state of game
 			var returnValue = validOpts.Any() ?
 				validOpts.Select(x => score(x, player.PlayerId, (optcount >= 5) ? ((optcount >= 25) ? 1 : 2) : 3)).OrderBy(x => x.Value).Last().Key :
 				player.Options().First(x => x.PlayerTaskType == PlayerTaskType.END_TURN);
 
 			return returnValue;
 
+			// traversing game states and finding the next best state to go to
 			KeyValuePair<PlayerTask, int> score(KeyValuePair<PlayerTask, POGame> state, int player_id, int max_depth = 3)
 			{
 				int max_score = int.MinValue;
@@ -104,12 +110,14 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 
 		private void InitByHero(CardClass heroClass, Profile profile = Profile.DEFAULT_BY_HERO)
 		{
+			// getting the initial weights based on hero class
 			totalScore = GretiveDispatcher.Score(heroClass, profile);
 			_initialized = true;
 		}
 
 		private int Score(POGame state, int playerId)
 		{
+			// Calling the scoring algorithm
 			totalScore.Controller = state.CurrentPlayer.PlayerId == _player.PlayerId ? state.CurrentPlayer : state.CurrentOpponent;
 
 			return new BetterScore { Controller = totalScore.Controller }.Rate();
