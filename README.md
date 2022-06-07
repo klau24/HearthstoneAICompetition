@@ -5,7 +5,9 @@
 
 # Overview
 
-The collectible online card game Hearthstone features a rich testbed and poses unique demands for generating artificial intelligence agents. The game is a turn-based card game between two opponents, using constructed decks of thirty cards along with a selected hero with a unique power. Players use their limited mana crystals to cast spells or summon minions to attack their opponent, with the goal to reduce the opponent’s health to zero. In this project, we will explore, compare, and evaluate various popular AI agents used to play the game.
+The collectible online card game Hearthstone features a rich testbed and poses unique demands for generating artificial intelligence agents. The game is a turn-based card game between two opponents, using constructed decks of thirty cards along with a selected hero with a unique power. Players use their limited mana crystals to cast spells or summon minions to attack their opponent, with the goal to reduce the opponent’s health to zero. 
+
+In this project, we will explore, compare, and evaluate various popular AI agents used to play the game. We also introduce a new agent called Weighted 2 Step Look Ahead.
 
 ### Project Structure ###
 
