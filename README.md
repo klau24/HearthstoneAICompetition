@@ -49,7 +49,7 @@ Total Games Played: 9000
 | Greedy  | 41% (1470/3600) |
 | MCTS    | 78% (2809/3600) |
 | N2SLA   | 79% (2835/3600) |
-| 2SLA    | 47% (1700/3600) |
+| W2SLA   | 47% (1700/3600) |
 
 # Acknowledgements
 This project will have been impossible without the SabberStone Hearthstone simulator engine. Check out the [Github](https://github.com/HearthSim/SabberStone) for more information. This repository is a fork of the HearthstoneAICompetition from [Adockhorn](https://github.com/ADockhorn/HearthstoneAICompetition). Compared to Sabberstone, our repository is a minimal environment with emphasis on the AI components.
