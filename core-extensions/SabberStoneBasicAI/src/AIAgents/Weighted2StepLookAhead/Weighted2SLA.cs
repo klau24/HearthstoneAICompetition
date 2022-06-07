@@ -42,7 +42,8 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 				score -= 7 * boardZoneEntry.AttackDamage;
 			}
 
-			// We add the computed score above to the initial weights from GretiveDispatcher
+			// We add the computed score above to the initial weights from GretiveDispatcher. The inital weights
+			// are normalized here.
 			return totalScore.Rate()/40 + score;
 		}
 
