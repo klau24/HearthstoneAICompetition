@@ -43,7 +43,7 @@ namespace SabberStoneBasicAI.AIAgents.CSC570
 			}
 
 			// We add the computed score above to the initial weights from GretiveDispatcher
-			return totalScore.Rate() + score;
+			return totalScore.Rate()/40 + score;
 		}
 
 		public override Func<List<IPlayable>, List<int>> MulliganRule()

@@ -10,8 +10,4 @@
     <ProjectReference Include="..\..\SabberStoneCore\SabberStoneCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\AIAgents\Weighted2StepLookAhead\" />
-  </ItemGroup>
-
 </Project>
