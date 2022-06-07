@@ -1,67 +1,55 @@
-# Hearthstone-AI Competition 2020
+# Cal Poly CSC 570: AI in Games Spring 2022 Project
+**Instructor**: Dr. Rodrigo Canaan, Cal Poly Computer Science & Software Engineering Department (rcanaan@calpoly.edu)
 
-Welcome to the 2020's Edition of the Hearthstone AI Competition. Please always download the latest version of the competition framework. Minor changes will be added until 17 April. Any further updates may include bugfixes. More information including setup information, tutorials and the source code of previous year's submissions can be found on the official competition homepage [Link](http://www.ci.ovgu.de/Research/HearthstoneAI.html).
-
-**We are happy to announce that the Hearthstone AI competition will be part of the 2020 IEEE Conference on Games. Additionally, IEEE CIS is funding a first prize of 500$ for the best entry of each track. Please download the latest version of the competition framework.**
-
+**Group members**: Kenny Lau, Kaanan Kharwa, Daniel Tisdale (klau24@calpoly.edu, kkharwa@calpoly.edu, dctisdal@calpoly.edu)
 
 # Overview
 
-The collectible online card game Hearthstone features a rich testbed and poses unique demands for generating artificial intelligence agents. The game is a turn-based card game between two opponents, using constructed decks of thirty cards along with a selected hero with a unique power. Players use their limited mana crystals to cast spells or summon minions to attack their opponent, with the goal to reduce the opponent’s health to zero. The competition aims to promote the stepwise development of fully autonomous AI agents in the context of Hearthstone.
+The collectible online card game Hearthstone features a rich testbed and poses unique demands for generating artificial intelligence agents. The game is a turn-based card game between two opponents, using constructed decks of thirty cards along with a selected hero with a unique power. Players use their limited mana crystals to cast spells or summon minions to attack their opponent, with the goal to reduce the opponent’s health to zero. 
 
-Entrants will submit agents to participate in one of the two tracks:
-
-* **Premade Deck Playing”-track:** participants will receive a list of six known decks and three decks unknown prior to your submission. During the evaluation, we will simulate all possible matchups for at least 100 games to determine the average win-rate for each agent. Determining and using the characteristics of the player’s and the opponent’s deck to the player’s advantage will help in winning the game. The following decks will be known in advance (please check their definition in „core-extensions\SabberStoneBasicAI\src\Meta\Decks.cs“)
-
-	- Aggro Pirate Warrior, Midrange Jade Shaman, Reno Kazakus Mage, Midrange Buff Paladin, Miracle Pirate Rogue, Zoo Discard Warlock
-
-
-* **“User Created Deck Playing”-track:** the competition framework allows agents to define their own deck. Finding a deck that can consistently beat a vast amount of other decks will play a key role in this competition track. Additionally, it gives the participants the chance in optimizing the agents’ strategy to the characteristics of their chosen deck.
-
-As long as the number of subsmission remains below 32, we will use a round robin tournament to determine the best submissions based on their average win-rate. In case more agents are submitted we will use multiple smaller round-robin tournaments to determine likely candidates and use a final round robin tournament for determining the best three submissions.
-
-**Competition Entry Deadline: July 1st 2019 23:59 UTC-12**
-
+In this project, we will explore, compare, and evaluate various popular AI agents used to play the game. We also introduce a new agent called Weighted 2 Step Look Ahead.
 
 ### Project Structure ###
 
 * **SabberStoneCoreAI** *(.NET Core)*
 
   A test project to run A.I. simulations with predefinied decks and strategys.
-		- Checkout Program.cs to find out how you can run your own tests.
-		- Implement your own agents by interiting the AbstractAgent class and see the ExampleAgents folder for some examples.
 		
 * **SabberStoneCore** *(.NET Core)*
 
   Core simulator engine, all the functions needed for the simulator are in here. Check out the Wiki [Link](https://github.com/HearthSim/SabberStone/wiki) for informations about the core and how to use it.
-		
 
-### Installation
+### Usage ###
+For the best results, we highly recommend running this repository on a Windows machine. When we tried to setup the SabberStone environment on MacOS machines, we ran into compilation issues that we were unable to solve. Our best guess is that while it is possible to run .NET applications on MacOS, the SabberStone repository is outdated or incompatible with the operating system.
 
-* See the Setup guide on [Link](http://www.ci.ovgu.de/Research/HearthstoneAI.html)
+Instructions to setup the repository:
+* Clone this repository to your machine
+* Open the project with [Visual Studio](https://visualstudio.microsoft.com/) (will not work if opened with Visual Studio Code!). Check and make sure you have Visual Studio Build Tools 2017, 2019 installed
+* Go to the following directory: [`HearthstoneAICompetition/core-extensions/SabberStoneBasicAI/src`](https://github.com/klau24/HearthstoneAICompetition/tree/master/core-extensions/SabberStoneBasicAI/src)
+	- In this directory there are a few key files and folders. [`Program.cs`](https://github.com/klau24/HearthstoneAICompetition/blob/master/core-extensions/SabberStoneBasicAI/src/Program.cs) is the main file used to run and compete each AI agent against each other. The [`AIAgents`](https://github.com/klau24/HearthstoneAICompetition/tree/master/core-extensions/SabberStoneBasicAI/src/AIAgents) folder contains the implementation for each agent.
+* Build the project
+* Run the project
+	- A terminal window should pop up that looks something like this:
 
-### Documentation
+	![image](https://user-images.githubusercontent.com/49251143/172262614-6af0b7fc-2392-4517-9b7d-f166c93d7da1.png)
+	- With the current parameters of `games_per_matchup=50` and `nr_of_threads=10`, the program will play around 9,000 games which took ~4 hours on our machines. These parameters can be changed on line `71` and `72` in [`Program.cs`](https://github.com/klau24/HearthstoneAICompetition/blob/master/core-extensions/SabberStoneBasicAI/src/Program.cs)
 
-* Competition Website [Link](http://www.ci.ovgu.de/Research/HearthstoneAI.html)
-* Wiki [Link](https://github.com/HearthSim/SabberStone/wiki)
+### Results ###
+The results from the report can be recreated using the parameters mentioned above (`games_per_matchup=50` and `nr_of_threads=10`). The agent we created, Weighted 2 Step Look Ahead (W2SLA), competed against the following agents: Random, Greedy, Monte Carlo Tree Search (MCTS), and Naive 2 Step Look Ahead (N2SLA). The results are computationally expensive to reproduce, so below is the raw output we recieved after the program ran:
 
-### License
+![image](https://user-images.githubusercontent.com/49251143/172273240-bb56dd6b-7672-4914-aee2-e4d1d78d1088.png)
 
-[![AGPLv3](https://www.gnu.org/graphics/agplv3-88x31.png)](http://choosealicense.com/licenses/agpl-3.0/)
+The table below summarizes our results:
 
-SabberStone is licensed under the terms of the
-[Affero GPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) or any later version.
+Total Games Played: 9000
 
-### Legal
+| Agent   | Win Rate        |
+| :---    | :---:           |
+| Random  | 5% (184/3600)   |
+| Greedy  | 41% (1470/3600) |
+| MCTS    | 78% (2809/3600) |
+| N2SLA   | 79% (2835/3600) |
+| W2SLA   | 47% (1700/3600) |
 
-This competition is not associated with Blizzard Entertainment. It is based on the Sabberstone framework which mimics the game Hearthstone and provides access points for the development of AI agents. The framework does not allow to play the original game nor does it connect to the game's servers in any way.
-
-Hearthstone and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.
-
-### Sabberstone Community
-We would like to thank the developers of the Sabberstone Framework on which our competition is based on. Special thanks go out to darkfriend77 (darkfriend@swissonline.ch) and Milva for their constant effort in keeping the Sabberstone framework up-to-date. Without your work, this competition would not exist!
-
-Checkout the Sabberstone community:
-* SabberStone on [Discord](https://discord.gg/my9WTwK) .. come and talk with us!
-* SabberStone on [Reddit](https://redd.it/5p0ar8)
-* SabberStone is a [HearthSim](http://hearthsim.info) project!
+# Acknowledgements
+This project will have been impossible without the SabberStone Hearthstone simulator engine. Check out the [Github](https://github.com/HearthSim/SabberStone) for more information. This repository is a fork of the HearthstoneAICompetition from [Adockhorn](https://github.com/ADockhorn/HearthstoneAICompetition). Compared to Sabberstone, our repository is a minimal environment with emphasis on the AI components.
