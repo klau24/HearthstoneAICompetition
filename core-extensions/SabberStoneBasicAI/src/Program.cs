@@ -25,8 +25,9 @@ using SabberStoneBasicAI.Score;
 using SabberStoneBasicAI.AIAgents;
 using SabberStoneBasicAI.PartialObservation;
 using SabberStoneBasicAI.CompetitionEvaluation;
-using SabberStoneBasicAI.AIAgents.BetterGreedyBot;
-using SabberStoneBasicAI.AIAgents.Test;
+using SabberStoneBasicAI.AIAgents.TwoSLA;
+using SabberStoneBasicAI.AIAgents.Gretive;
+using SabberStoneBasicAI.AIAgents.CSC570;
 
 
 namespace SabberStoneBasicAI
@@ -57,9 +58,9 @@ namespace SabberStoneBasicAI
 			Agent[] agents = new Agent[5];
 			agents[0] = new Agent(typeof(RandomAgent), "Random Agent");
 			agents[1] = new Agent(typeof(GreedyAgent), "Greedy Agent");
-			agents[2] = new Agent(typeof(AIAgents.Gretive.GretiveComp), "MCTS");
-			agents[3] = new Agent(typeof(MyAgentSebastianMiller), "2 Step Look Ahead");
-			agents[4] = new Agent(typeof(MyAgentCSC570), "Weighted 2 Step Look Ahead");
+			agents[2] = new Agent(typeof(MCTS), "MCTS");
+			agents[3] = new Agent(typeof(Naive2SLA), "2 Step Look Ahead");
+			agents[4] = new Agent(typeof(Weighted2SLA), "Weighted 2 Step Look Ahead");
 
 			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[3];
 			decks[0] = new CompetitionEvaluation.Deck(Decks.RenoKazakusMage, CardClass.MAGE, "Mage");

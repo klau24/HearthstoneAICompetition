@@ -32,7 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SabberStoneBasicAI.AIAgents.Test
+namespace SabberStoneBasicAI.AIAgents.CSC570
 {
 	class GretiveComp : AbstractAgent
 	{

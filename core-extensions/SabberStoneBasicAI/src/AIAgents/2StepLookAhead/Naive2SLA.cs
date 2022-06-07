@@ -8,10 +8,10 @@ using SabberStoneBasicAI.Score;
 using SabberStoneCore.Model.Entities;
 
 //Submission for Master
-namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
+namespace SabberStoneBasicAI.AIAgents.TwoSLA
 {
 
-	class MyAgentSebastianMiller2 : AbstractAgent
+	class Naive2SLA : AbstractAgent
 	{
 		public override void FinalizeAgent()
 		{

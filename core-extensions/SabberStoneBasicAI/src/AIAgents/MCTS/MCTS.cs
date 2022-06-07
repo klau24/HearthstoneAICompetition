@@ -34,7 +34,7 @@ using System.Linq;
 
 namespace SabberStoneBasicAI.AIAgents.Gretive
 {
-	class GretiveComp : AbstractAgent
+	class MCTS : AbstractAgent
 	{
 
 		private GretiveScore _score;
@@ -42,8 +42,8 @@ namespace SabberStoneBasicAI.AIAgents.Gretive
 		private bool _initialized=false;
 		private SabberStoneCore.Model.Entities.Controller _player;
 
-		public GretiveComp() { }
-		public GretiveComp(CardClass hero, Profile profile = Profile.DEFAULT_BY_HERO) { InitByHero(hero, profile); }
+		public MCTS() { }
+		public MCTS(CardClass hero, Profile profile = Profile.DEFAULT_BY_HERO) { InitByHero(hero, profile); }
 
 		public override void FinalizeAgent() { }
 		public override void FinalizeGame(){}

@@ -27,7 +27,7 @@
 
 using SabberStoneCore.Enums;
 
-namespace SabberStoneBasicAI.AIAgents.Test
+namespace SabberStoneBasicAI.AIAgents.CSC570
 {
 	class GretiveDispatcher
 	{

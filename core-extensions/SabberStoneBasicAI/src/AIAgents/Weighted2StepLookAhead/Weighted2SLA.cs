@@ -7,13 +7,14 @@ using System.Linq;
 using SabberStoneBasicAI.Score;
 using SabberStoneCore.Model.Entities;
 
-//Submission for Master
-namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
+namespace SabberStoneBasicAI.AIAgents.CSC570
 {
 	class BetterScore : Score.Score
 	{
 		public override int Rate()
 		{
+			GretiveScore totalScore = Weighted2SLA.GetScore();
+
 			if (OpHeroHp < 1)
 				return Int32.MaxValue;
 
@@ -22,8 +23,8 @@ namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
 
 			int score = 0;
 
-			score += 2 * HeroHp;
-			score -= 3 * OpHeroHp;
+			score += 3 * HeroHp;
+			score -= 4 * OpHeroHp;
 
 			score +=  4 * BoardZone.Count;
 			score -=  6 * OpBoardZone.Count;
@@ -31,16 +32,16 @@ namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
 			foreach (var boardZoneEntry in BoardZone)
 			{
 				score += 5 * boardZoneEntry.Health;
-				score += 6 * boardZoneEntry.AttackDamage;
+				score += 4 * boardZoneEntry.AttackDamage;
 			}
 
 			foreach (var boardZoneEntry in OpBoardZone)
 			{
 				score -= 9 * boardZoneEntry.Health;
-				score -= 8 * boardZoneEntry.AttackDamage;
+				score -= 7 * boardZoneEntry.AttackDamage;
 			}
 
-			return score;
+			return totalScore.Rate() + score;
 		}
 
 		public override Func<List<IPlayable>, List<int>> MulliganRule()
@@ -50,8 +51,17 @@ namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
 	}
 
 
-	class MyAgentSebastianMiller : AbstractAgent
+	class Weighted2SLA : AbstractAgent
 	{
+		private SabberStoneCore.Model.Entities.Controller _player;
+		private bool _initialized = false;
+
+		public static GretiveScore totalScore;
+
+		public static GretiveScore GetScore()
+		{
+			return totalScore;
+		}
 		public override void FinalizeAgent()
 		{
 		}
@@ -62,6 +72,9 @@ namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
 
 		public override PlayerTask GetMove(POGame game)
 		{
+			_player = game.CurrentPlayer;
+			if (!_initialized) InitByHero(_player.HeroClass);
+
 			var player = game.CurrentPlayer;
 			var validOpts = game.Simulate(player.Options()).Where(x => x.Value != null);
 			var optcount = validOpts.Count();
@@ -89,10 +102,17 @@ namespace SabberStoneBasicAI.AIAgents.BetterGreedyBot
 			}
 		}
 
-		private static int Score(POGame state, int playerId)
+		private void InitByHero(CardClass heroClass, Profile profile = Profile.DEFAULT_BY_HERO)
 		{
-			var p = state.CurrentPlayer.PlayerId == playerId ? state.CurrentPlayer : state.CurrentOpponent;
-			return new BetterScore { Controller = p }.Rate();
+			totalScore = GretiveDispatcher.Score(heroClass, profile);
+			_initialized = true;
+		}
+
+		private int Score(POGame state, int playerId)
+		{
+			totalScore.Controller = state.CurrentPlayer.PlayerId == _player.PlayerId ? state.CurrentPlayer : state.CurrentOpponent;
+
+			return new BetterScore { Controller = totalScore.Controller }.Rate();
 		}
 
 		public override void InitializeAgent()

@@ -22,7 +22,7 @@
  */
 
 
-namespace SabberStoneBasicAI.AIAgents.Test
+namespace SabberStoneBasicAI.AIAgents.CSC570
 {
 	//More info:
 	//https://hearthstone.gamepedia.com/Deck_type

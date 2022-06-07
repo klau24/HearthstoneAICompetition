@@ -29,7 +29,7 @@ using System;
 
 
 
-namespace SabberStoneBasicAI.AIAgents.Test
+namespace SabberStoneBasicAI.AIAgents.CSC570
 {
 	class GretiveScore : Score.Score
 	{
