@@ -28,11 +28,16 @@ Instructions to setup the repository:
 * Build the project
 * Run the project
 	- A terminal window should pop up that looks something like this:
+
 	![image](https://user-images.githubusercontent.com/49251143/172262614-6af0b7fc-2392-4517-9b7d-f166c93d7da1.png)
-	- With the current parameters, the program will play around 9,000 games which took ~4 hours on our machines.
+	- With the current parameters of `games_per_matchup=50` and `nr_of_threads=10`, the program will play around 9,000 games which took ~4 hours on our machines. These parameters can be changed on line `71` and `72` in [`Program.cs`](https://github.com/klau24/HearthstoneAICompetition/blob/master/core-extensions/SabberStoneBasicAI/src/Program.cs)
 
 ### Results ###
-blah blah
+The results from the report can be recreated using the parameters mentioned above (`games_per_matchup=50` and `nr_of_threads=10`). The agent we created, Weighted 2 Step Look Ahead, competed against the following agents: Random, Greedy, MCTS, and Naive 2 Step Look Ahead. The results are computationally expensive to reproduce, so below is the raw output we recieved after the program ran:
+
+![image](https://user-images.githubusercontent.com/49251143/172273240-bb56dd6b-7672-4914-aee2-e4d1d78d1088.png)
+
+Insert some more detailed data about the results.
 
 # Acknowledgements
 This project will have been impossible without the SabberStone Hearthstone simulator engine. Check out the [Github](https://github.com/HearthSim/SabberStone) for more information. This repository is a fork of the HearthstoneAICompetition from [Adockhorn](https://github.com/ADockhorn/HearthstoneAICompetition). Compared to Sabberstone, our repository is a minimal environment with emphasis on the AI components.
